@@ -1,6 +1,6 @@
 Http Get
 
-exemplo de consumo de uma Api e montrar os dados em uma ListView
+Exemplo de consumo de uma Api, e montrar os dados em uma ListView
 ![http_User](https://user-images.githubusercontent.com/98062365/155887717-a35d26d0-1a3f-4087-9ff4-c3b3e784e049.gif)
 
 
