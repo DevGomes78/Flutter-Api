@@ -38,42 +38,46 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: ListView.builder(
-            itemCount: lista.isEmpty ? 0 : lista.length,
-            itemBuilder: (context, index) {
-              var list = lista[index];
-              return Card(
-                elevation: 5,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => UserDetais(
-                          data: list,
-                        ),
-                      ),
-                    );
-                  },
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        list.avatar.toString(),
+      body: buildPadding(),
+    );
+  }
+
+  Padding buildPadding() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ListView.builder(
+          itemCount: lista.isEmpty ? 0 : lista.length,
+          itemBuilder: (context, index) {
+            var list = lista[index];
+            return Card(
+              elevation: 5,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserDetais(
+                        data: list,
                       ),
                     ),
-                    title: Text(
-                      list.lastName.toString(),
-                    ),
-                    subtitle: Text(
-                      list.email.toString(),
+                  );
+                },
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      list.avatar.toString(),
                     ),
                   ),
+                  title: Text(
+                    list.lastName.toString(),
+                  ),
+                  subtitle: Text(
+                    list.email.toString(),
+                  ),
                 ),
-              );
-            }),
-      ),
+              ),
+            );
+          }),
     );
   }
 }
