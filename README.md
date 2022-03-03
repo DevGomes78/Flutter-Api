@@ -1,8 +1,9 @@
 Http Get
 Exemplo de consumo de uma Api,
-e mostrar os dados em uma ListView.
-utilizado o widget Splash screen.
+e mostrar os dados em uma ListView,
+foi utilizado o widget Splash screen para inicio do App.
  dependencias: http e shimmer.
+ 
 ![http_user](https://user-images.githubusercontent.com/98062365/156669341-a3a82765-11f0-42e2-8fe0-52626aa77364.gif)
 
 
