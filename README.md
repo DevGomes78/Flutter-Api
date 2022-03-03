@@ -3,9 +3,7 @@ Exemplo de consumo de uma Api,
 e mostrar os dados em uma ListView.
 utilizado o widget Splash screen.
  dependencias: http e shimmer.
-![http_user](https://user-images.githubusercontent.com/98062365/156668750-73f54ed4-f2b8-4b2a-89a1-e35ace2e9abd.gif)
-
-
+![http_user](https://user-images.githubusercontent.com/98062365/156669341-a3a82765-11f0-42e2-8fe0-52626aa77364.gif)
 
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
