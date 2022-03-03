@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:http_get_user/components/skeleton.dart';
 import 'package:http_get_user/pages/user_details.dart';
 import 'package:http_get_user/repository/user_repository.dart';
 import 'models/user_models.dart';
@@ -12,16 +12,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isLoading = false;
   List<Data> lista = [];
 
   @override
   void initState() {
     super.initState();
+    loadUser();
+  }
+
+  Future loadUser() async {
+    setState(() => isLoading = true);
+    await Future.delayed(
+      const Duration(seconds: 3),
+    );
     UserRepositoy().GetUser().then((map) {
       setState(() {
         lista = map;
       });
     });
+    setState(() => isLoading = false);
   }
 
   @override
@@ -37,6 +47,14 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          IconButton(
+            onPressed: loadUser,
+            icon: const Icon(
+              Icons.refresh,
+            ),
+          ),
+        ],
       ),
       body: buildPadding(),
     );
@@ -46,38 +64,46 @@ class _HomePageState extends State<HomePage> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
-          itemCount: lista.isEmpty ? 0 : lista.length,
+          itemCount: isLoading ? 10 : lista.length,
           itemBuilder: (context, index) {
-            var list = lista[index];
-            return Card(
-              elevation: 5,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => UserDetais(
-                        data: list,
-                      ),
-                    ),
-                  );
-                },
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      list.avatar.toString(),
-                    ),
-                  ),
-                  title: Text(
-                    list.lastName.toString(),
-                  ),
-                  subtitle: Text(
-                    list.email.toString(),
-                  ),
-                ),
-              ),
-            );
+            if (isLoading) {
+              return const Skeleton().buildListTile();
+            } else {
+              var list = lista[index];
+              return buildCard(context, list);
+            }
           }),
+    );
+  }
+
+  Card buildCard(BuildContext context, Data list) {
+    return Card(
+      elevation: 5,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => UserDetais(
+                data: list,
+              ),
+            ),
+          );
+        },
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+              list.avatar.toString(),
+            ),
+          ),
+          title: Text(
+            list.lastName.toString(),
+          ),
+          subtitle: Text(
+            list.email.toString(),
+          ),
+        ),
+      ),
     );
   }
 }
