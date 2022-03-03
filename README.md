@@ -1,4 +1,4 @@
-Http Get
+
 Exemplo de consumo de uma Api,
 e mostrar os dados em uma ListView,
 foi utilizado o widget Splash screen para inicio do App.
