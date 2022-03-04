@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Future loadUser() async {
     setState(() => isLoading = true);
     await Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
     );
     UserRepositoy().GetUser().then((map) {
       setState(() {
