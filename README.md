@@ -1,8 +1,10 @@
-Http Get
 
-Exemplo de consumo de uma Api, e montrar os dados em uma ListView
-![http_User](https://user-images.githubusercontent.com/98062365/155887717-a35d26d0-1a3f-4087-9ff4-c3b3e784e049.gif)
-
+Exemplo de consumo de uma Api,
+e mostrar os dados em uma ListView,
+foi utilizado o widget Splash screen para inicio do App.
+ dependencias: http e shimmer.
+ 
+![http_user](https://user-images.githubusercontent.com/98062365/156669341-a3a82765-11f0-42e2-8fe0-52626aa77364.gif)
 
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
