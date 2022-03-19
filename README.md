@@ -1,5 +1,5 @@
 
-Exemplo de consumo de uma Api,
+Exemplo de consumo de uma Api,Utilizando Padrao MVC
 e mostrar os dados em uma ListView,
 foi utilizado o widget Splash screen para inicio do App.
  dependencias: http e shimmer.
