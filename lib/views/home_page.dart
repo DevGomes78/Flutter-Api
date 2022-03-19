@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:http_get_user/components/skeleton.dart';
-import 'package:http_get_user/pages/user_details.dart';
-import 'package:http_get_user/repository/user_repository.dart';
-import 'models/user_models.dart';
+import 'package:http_get_user/controllers/user_repository.dart';
+import 'package:http_get_user/views/user_details.dart';
+import 'package:http_get_user/widgets/skeleton.dart';
+import '../models/user_models.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
